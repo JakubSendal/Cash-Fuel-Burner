@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cash Fuel Burner</title>
+    <link href="./style.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript">
+
+      const cash = () => {
+        let km = document.getElementById("km").value;
+        let burning = document.getElementById("burning").value;
+        let fuelPrice = document.getElementById("fuelPrice").value;
+          const pricePer100 = burning * fuelPrice;
+          const pricePer1 = pricePer100 / 100;
+          let totalPrice = pricePer1 * km;
+          totalPrice = Math.floor(totalPrice);
+
+          if (totalPrice >= 0) {
+            return document.getElementById("submit").innerHTML =
+            'Fuel Price equals ' + totalPrice + ' PLN';
+        } else {
+          return document.getElementById("submit").innerHTML =
+          'Input is incorrect, you have to use numbers and dots.';
+        }
+      }
+
+    </script>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Cash Fuel<br>Burner</h1>
+    </div>
+    <div id="notes">
+      <h2>KM YOU WANT TO COUNT COST</h2>
+        <input type="text" id="km">
+      <h2>BURNING BY YOUR CAR PER 100KM</h2>
+        <input type="text" id="burning">
+      <h2>PRICE OF FUEL PER 1 L</h2>
+        <input type="text" id="fuelPrice">
+    </div>
+    <div id="button div">
+      <br><br><input id="button" type="submit" value="Count it for me!" onclick=cash()>
+    </div>
+    <div id="submit">
+    </div>
+
+  </body>
+</html>
